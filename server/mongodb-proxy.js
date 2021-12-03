@@ -411,8 +411,10 @@ function getTimeseriesResults(docs)
       dp = { 'target' : tg, 'datapoints' : [] }
       results[tg] = dp
     }
-    
-    results[tg].datapoints.push([doc['value'], doc['ts'].getTime()])
+
+    var valFloat = parseFloat("" + doc['value'])
+
+    results[tg].datapoints.push([valFloat, doc['ts'].getTime()])
   }
   return results
 }
